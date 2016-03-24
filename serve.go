@@ -12,10 +12,11 @@ func main() {
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	//fmt.Fprint(w, "test")
-	f, err := io.Copy(w, f)
+	f, err :=  os.Open("index.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	io.Copy(w, f)
 
 }
