@@ -2,8 +2,8 @@ package main
 
 import (
 	"io"
-	"os"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -13,11 +13,19 @@ func main() {
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	//fmt.Fprint(w, "test")
-	f, err :=  os.Open("index.html")
+	f, err := os.Open("./public/index.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 	io.Copy(w, f)
 
+}
+func aboutHandler(w http.ResponseWriter, r *http.Request) {
+	f, err := os.Open("./public/about.html")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	io.Copy(w, f)
 }
