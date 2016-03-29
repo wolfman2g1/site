@@ -8,6 +8,8 @@ import (
 
 func main() {
 	http.HandleFunc("/", indexHandler)
+	http.HandleFunc("/about", aboutHandler)
+	http.HandleFunc("signup", signupHandler)
 	http.ListenAndServe(":6060", nil)
 }
 
@@ -28,4 +30,8 @@ func aboutHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	io.Copy(w, f)
+}
+func signupHandler(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm() // Parse the url perameters
+
 }
