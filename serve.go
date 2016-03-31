@@ -5,8 +5,9 @@ import (
 	"net/http"
 	"os"
 	"golang.org/x/crypto/bcrypt"
+	"errors"
 )
-
+var ErrPasswordMatch = errors.New("password and confirm password must match")
 func main() {
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/about", aboutHandler)
@@ -59,7 +60,7 @@ func createAccount( username string, password string, password2 string) {
 	//TODO  should i be handling password hashing on the server or should this be done in the client ?
 	if password != password2 {
 		// return some sort of message to the user.. Javascript?
-		// TODO figure out how to handle this if it evaluates to be true
+		return ErrPasswordMatch
 	}
 
 
