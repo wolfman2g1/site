@@ -9,13 +9,15 @@
 </head>
 <body>
 <h1> Test</h1>
-<div>
+<div id="container">
 < form action="/signup" method="post">
-  Username: <input type="text" name="username">
-  Password: <input type="password" name="password">
-  Confirm: <input type="password" name="password">
-  Email: < input type="email" name="email">
-  <input type="submit" Value="Sign Up">
+    <table>
+<tr>  Username: <input type="text" name="username"> </tr>
+<tr> <td>  Password: <input type="password" name="password"> </td>
+ <td>Confirm: <input type="password" name="password"></td> </tr>
+ <tr> Email: < input type="email" name="email"></tr>
+<tr col="2"> <input type="submit" Value="Sign Up"></tr>
+    </table>
 
   </form>
 

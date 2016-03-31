@@ -71,5 +71,5 @@ func createAccount( username string, password string, password2 string) {
 	}
 //TODO make a comparison function for user sign in
 
-	return
+	
 }
